@@ -614,48 +614,25 @@ $(document).ready(function(dataJson){
 		$('#detailOffice').val(office);
 		$('#detailExn').val(extn);
 	});
-	//search by id
-	$("#searchID").on("keyup", function() {
-		var value = $(this).val();
-		$("table tr").each(function(search) {
-			if (search !== 0) {
-			    $row = $(this);
-			    var id = $row.find("td:eq(0)").text();
-			    if (id.indexOf(value) !== 0) {
-			        $row.hide();
-			    }
-			    else 
-			    {
-			        $row.show();
-			    }
-			}
-		});
-	});
-	//search by name
-	$("#searchName").on("keyup", function() {
-		var value = $(this).val();
-		$("table tr").each(function(search) {
-			if (search !== 0) {
-			    $row = $(this);
-			    var id = $row.find("td:eq(1)").text();
-			    if (id.indexOf(value) !== 0) {
-			        $row.hide();
-			    }
-			    else {
-			           $row.show();
-			        }
-			    }
-		    });
-		});
-	});
 
-	//clear input search
-	function clearSearch() {
-		$("#F5").click(function(){
-			$("#searchID").val('');
-			$("#searchName").val('');
-		});
-	}
+	//search by id or name
+	$("#search-button").click(function(){
+        $.each($("#blog_table tbody tr"), function() {
+            if($(this).text().toLowerCase().indexOf($('#searchID').val().toLowerCase()) === -1){
+            	$(this).hide();
+            }
+            else if($(this).text().toLowerCase().indexOf($('#searchName').val().toLowerCase()) === -1){
+            	$(this).hide();
+            }else{
+            	$(this).show();
+            }       
+        });
+    }); 
+    //clear input search
+	$("#F5").click(function(){
+		$("#searchID").val('');
+		$("#searchName").val('');
+	});
 
 	$('#F10').on('click', function () {
         var data = new Array();
@@ -673,6 +650,4 @@ $(document).ready(function(dataJson){
     	});
     	console.log(data)      
 	});
-
-
-	
+});
