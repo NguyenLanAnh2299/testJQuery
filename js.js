@@ -616,38 +616,46 @@ $(document).ready(function(dataJson){
 	});
 
 	//search by id or name
-	$("#search-button").click(function(){
-        $.each($("#blog_table tbody tr"), function() {
-            if($(this).text().toLowerCase().indexOf($('#searchID').val().toLowerCase()) === -1){
-            	$(this).hide();
-            }
-            else if($(this).text().toLowerCase().indexOf($('#searchName').val().toLowerCase()) === -1){
-            	$(this).hide();
-            }else{
-            	$(this).show();
-            }       
-        });
-    }); 
+	$(document).ready(function(search){
+		$("#search-button").click(function(){
+	        $.each($("#blog_table tbody tr"), function() {
+	            if($(this).text().toLowerCase().indexOf($('#searchID').val().toLowerCase()) === -1){
+	            	$(this).hide();
+	            }
+	            else if($(this).text().toLowerCase().indexOf($('#searchName').val().toLowerCase()) === -1){
+	            	$(this).hide();
+	            }else{
+	            	$(this).show();
+	            }       
+	        });
+    	}); 
+	});
     //clear input search
-	$("#F5").click(function(){
-		$("#searchID").val('');
-		$("#searchName").val('');
-	});
-
-	$('#F10').on('click', function () {
-        var data = new Array();
-        $('#blog_table').each(function () {
-            var item = {
-                id: $(this).find('td:eq(0)').text(),
-                name: $(this).find('td:eq(1)').text(),
-                position: $(this).find('td:eq(2) option:selected').text(),
-                salary: $(this).find('td:eq(3)').find('input').val(),
-                date: $(this).find('td:eq(4)').find('input').val(),
-                office: $(this).find('td:eq(5) option:selected').text(),
-                extn: $(this).find('td:eq(6)').find('input').val()
-            };
-            data.push(item);
-    	});
-    	console.log(data)      
-	});
+    $(document).ready(function(clearInputSearch){
+    	$("#F5").click(function(){
+			$("#searchID").val('');
+			$("#searchName").val('');
+		});
+    });
+	
+    //save data 
+    $(document).ready(function(saveData){
+    	$('#F10').on('click', function () {
+       		var data = new Array();
+	        $('#blog_table').each(function () {
+	            var item = {
+	                id: $(this).find('td:eq(0)').text(),
+	                name: $(this).find('td:eq(1)').text(),
+	                position: $(this).find('td:eq(2) option:selected').text(),
+	                salary: $(this).find('td:eq(3)').find('input').val(),
+	                date: $(this).find('td:eq(4)').find('input').val(),
+	                office: $(this).find('td:eq(5) option:selected').text(),
+	                extn: $(this).find('td:eq(6)').find('input').val()
+	            };
+	            data.push(item);
+	    	});
+	    	console.log(data)      
+		});
+    });
+	
 });
