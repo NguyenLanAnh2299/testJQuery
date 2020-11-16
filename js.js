@@ -596,7 +596,6 @@ $(document).ready(function(dataJson){
 		var val = $(this).val(id);
 		val.find("option[value=" + id +"]").attr('selected', true);
 	});
-
 	//detail table
 	$("#blog_table").on('click', 'tr', function getDataTable(){
 	    var id = $(this).find('td:eq(0)').text();
@@ -614,7 +613,6 @@ $(document).ready(function(dataJson){
 		$('#detailOffice').val(office);
 		$('#detailExn').val(extn);
 	});
-
 	//search by id or name
 	$(document).ready(function(search){
 		$("#search-button").click(function(){
@@ -637,7 +635,6 @@ $(document).ready(function(dataJson){
 			$("#searchName").val('');
 		});
     });
-	
     //save data 
     $(document).ready(function(saveData){
     	$('#F10').on('click', function () {
@@ -657,5 +654,4 @@ $(document).ready(function(dataJson){
 	    	console.log(data)      
 		});
     });
-	
 });
