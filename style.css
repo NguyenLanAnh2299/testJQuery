@@ -8,12 +8,54 @@ body {
 
 /* Style the header */
 header {
-  background-color: #08088A;
   padding: 30px;
   text-align: center;
-  font-size: 35px;
   color: white;
   width: 100%;
+}
+.header{
+  height: 60px;
+}
+p {
+    color: white;
+    font-weight: bold;
+
+}
+a{
+  color:black;
+  font-weight: 500;
+}
+.sidebar{
+  position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1)
+}
+.CompanyName{
+  background-color: #404040;
+}
+.inputSearch{
+  background-color: #595959;
+}
+ .header .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+  }
+.header .form-control-dark{
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.login{
+  background-color: #404040;
+}
+.form-header{
+  width: 100px;
 }
 #myDIV{
   margin-bottom: 5rem;
@@ -30,7 +72,7 @@ form{
 	background-color: #0A0A2A; 
 }
 .btn-outline-secondary{ 
-  width: 100%;
+  width: 80%;
 }
 #searchName-row .{
 
